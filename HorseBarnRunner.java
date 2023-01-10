@@ -9,16 +9,23 @@ public class HorseBarnRunner
   public static void main(String[] args)
   {
     HorseBarn barn = new HorseBarn();
+    ArrayList <Horse> randHorse = new ArrayList<Horse>();
     ArrayList<Horse> barnSpaces = barn.getSpaces();
 
-    Collections.shuffle(barnSpaces);
-    System.out.println(barnSpaces);
+    int[] randNums = RandomPermutation.next(10);
+    System.out.println(java.util.Arrays.toString(randNums));
 
-    for(int i = 0; i < barnSpaces.size(); i = i + 2){
+    for(int r: randNums){
+      randHorse.add(barnSpaces.get(r));
+    }
+
+    System.out.println(randHorse);
+
+    for(int i = 0; i < randHorse.size(); i = i + 2){
       try{
-        System.out.println(barnSpaces.get(i) + " and " + barnSpaces.get(i + 1));
+        System.out.println(randHorse.get(i) + " and " + randHorse.get(i + 1));
       } catch (Exception e) {
-        System.out.println(barnSpaces.get(i) + " doesn't have a pair");
+        System.out.println(randHorse.get(i) + " doesn't have a pair");
       }
     }
 
