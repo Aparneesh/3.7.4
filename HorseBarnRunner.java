@@ -14,8 +14,12 @@ public class HorseBarnRunner
     Collections.shuffle(barnSpaces);
     System.out.println(barnSpaces);
 
-    for(int i = 0; i < barnSpaces.size() - 1; i = i + 2){
-      System.out.println(barnSpaces.get(i) + " and " + barnSpaces.get(i + 1));
+    for(int i = 0; i < barnSpaces.size(); i = i + 2){
+      try{
+        System.out.println(barnSpaces.get(i) + " and " + barnSpaces.get(i + 1));
+      } catch (Exception e) {
+        System.out.println(barnSpaces.get(i) + " doesn't have a pair");
+      }
     }
 
 
